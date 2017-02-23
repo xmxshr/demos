@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.layout{
+			width: 600px;
+			margin: 0 auto;
+			color: #757575;
+			box-shadow: 0px 0px 5px #000;
+			padding-bottom: 20px;
+			font-family: arial;
+		}
+		.layout h2,button{
+			color: #fff;
+			background-color: #009688;
+			padding: 15px;
+		}
+		.layout button{
+			padding: 5px 15px;
+			margin-top: 20px;
+		}
+		.form{
+			margin: 15px;
+		}
+		.form>div{
+			margin-top: 15px;
+			overflow: auto;
+		}
+		input[type="text"],
+		.form textarea{
+			border: none;
+			display: block;
+			border-bottom: 1px solid #808080;
+			width: 100%;
+			padding: 10px;
+		}
+		.choose{
+			float: left;
+			width: 50%;
+			line-height: 1.4;
+		}
+		.choose>label{
+			color: #757575;
+            vertical-align: middle;
+		}
+	</style>
+</head>
+<body>
+    <div class="layout">
+        <h2>信息收集表</h2>
+        <div class="form">
+            <div>
+            	<label for="name">姓名</label>
+    	        <input type="text" id="name" name="name" class="">
+            </div>
+    	    <div>
+    	    	<label for="QQ">QQ</label>
+    	        <input type="text" id="QQ" name="QQ">
+    	    </div>
+    	    <div>
+    	    	<label>要说的话</label>
+    	        <textarea rows="5" cols="100"></textarea>
+    	    </div>
+    	    <div>    
+    	        <div class="choose">
+    		    <input type="checkbox" id="Milk" name="like" value="Milk">
+    		    <label for="Milk">Milk</label>
+    		    <br>
+    		    <input type="checkbox" id="Sugar" name="like" value="Sugar">
+    		    <label for="Sugar">Sugar</label>
+    		    <br>
+    		    <input type="checkbox" id="Lemon" name="like" value="Lemon">
+    		    <label for="Lemon">Lemon</label>
+    		    <br>
+    	        </div>
+    	    	<div class="choose">
+    		        <input type="radio" id="Male" name="sex" value="Male">
+    		        <label for="Male">Male</label>
+    		        <br>
+    		        <input type="radio" id="Female" name="sex" value="Female">
+    		        <label for="Female">Female</label>
+    		        <br>
+    	        </div>
+    	    </div>
+    	    <button>提交</button>
+    	</div>	
+    </div>
+</body>
+</html>

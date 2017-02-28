@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		@font-face {
+			font-family: 'iconfont';  /* project id 237066 */
+			src: url('//at.alicdn.com/t/font_av35uir2odih33di.eot');
+			src: url('//at.alicdn.com/t/font_av35uir2odih33di.eot?#iefix') format('embedded-opentype'),
+			url('//at.alicdn.com/t/font_av35uir2odih33di.woff') format('woff'),
+			url('//at.alicdn.com/t/font_av35uir2odih33di.ttf') format('truetype'),
+			url('//at.alicdn.com/t/font_av35uir2odih33di.svg#iconfont') format('svg');
+		}
+		.iconfont{
+			font-family: "iconfont";
+			font-style:normal;
+			-webkit-font-smoothing: antialiased;
+  			-moz-osx-font-smoothing: grayscale;
+		}
+		*{
+			box-sizing: border-box;
+		}
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		ul,li{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		a{
+			text-decoration: none;
+		}
+		p{
+			color: #777;
+		}
+		.container{
+			max-width: 980px;
+			margin: 0 auto;
+			position: relative;
+		}
+		#header{
+			position: fixed;
+    		width: 100%;
+			color: #fff;
+			background-color: #222;
+			z-index: 100;
+		}
+		#services,
+		#portfolio,
+		#about,
+		#team,
+		#contact{
+			padding-top: 150px;
+			padding-bottom: 150px;
+		}
+		#portfolio,
+		#team{
+			background-color: #f7f7f7;
+		}
+		.template-rightword>h3,
+		.template-leftword>h3,
+		.portfolio-word>h3{
+			margin: 0 auto;
+		}
+		.navbar:after,
+		.template:after,
+		.portfolio-panels:after,
+		.about-panels:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+		.template{
+			text-align: center;
+			color: #333;
+			margin-left: -40px;
+		}
+		.template h1{
+			margin-bottom: 0px;
+			margin-left: 40px;
+			font-size: 40px;
+		}
+		.template>p{
+			margin-left: 40px;
+		}
+		.btn{
+			padding: 20px 40px;
+			border: 1px solid #fed136;
+			border-radius: 5px;
+			display: inline-block;
+			color: #fff;
+			background-color: #fed136;
+		}
+		.btn:hover{
+			background-color: #fec503;
+		}
+		.active{
+			background-color: #fed136;
+		}
+		.services-panels,
+		.portfolio-panels,
+		.iteam-panels{
+			float: left;
+			width: 300px;
+			margin-left: 40px;
+			margin-top: 70px;
+		}
+		.navbar-logo>a{
+			float: left;
+			font-size: 55px;
+			color: #fff;
+			position: relative;
+		    top: 5px;
+		    left: 100px;
+		}
+		.navbar-button{
+			padding-right: 90px;
+			float: right;
+		}
+		.navbar-button>li{
+			float: left;
+		}
+		.navbar-button>li>a{
+			display: inline-block;
+			padding: 15px 15px;
+			margin: 10px 0;
+			color: #fff;
+			border: 1px solid #222;
+			border-radius: 5px;
+		}
+		.navbar-button>li>a:hover{
+			color: #fec503;
+		}
+		#welcome{
+			margin: 0!important;
+			padding-top: 180px;
+			padding-bottom: 200px;
+			text-align: center;
+			background: url(welcome.jpg);
+			background-size: cover;
+			background-attachment: scroll;
+			background-position: center center;
+			color: #fff;
+		}
+		#welcome>h1{
+			font-size: 70px;
+		}
+		#welcome>h3{
+			font-size: 50px;
+			margin-bottom: 0;
+		}
+		.services-icon{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #fed136;
+			border-radius: 50%;
+			display: block;
+			position: relative;
+			top: 0;
+			left: 100px;
+			background-color: #fed136;
+		}
+		.icon-1:after{
+			content:"\e66d";
+			display: inline-block;
+			position: absolute;
+			font-size: 50px;
+    		top: 20px;
+    		left: 25px;
+		}
+		.icon-2:after{
+			content:"\e602";
+			display: inline-block;
+			position: absolute;
+			font-size: 50px;
+    		top: 20px;
+    		left: 25px;
+		}
+		.icon-3:after{
+			content:"\e640";
+			display: inline-block;
+			position: absolute;
+			font-size: 50px;
+    		top: 20px;
+    		left: 25px;
+		}
+		.portfolio-photos{
+			width: 100%;
+			height: 350px;
+		}
+		.portfolio-photos>a{
+			float: left;
+		}
+		.portfolio-word{
+			text-align: center;
+			height: 120px;
+    		padding: 10px;
+			background-color: #fff;
+		}
+		.about-timeline:before{
+			top: 289px;
+			bottom: 0;
+			left: 50%;
+			width: 2px;
+			content: "";
+			background-color: #f1f1f1;
+			position: absolute;
+		}
+		.about-timeline{
+			margin-left: 40px;
+		}
+		.about-timeline h3{
+			margin: 0 auto 5px;
+		}
+		.about-timeline h3:last-child{
+			margin: 35px auto ;
+		}
+		.about-timeline p{
+			margin: 0 auto;
+		}
+		.about-panels{
+			margin-bottom: 100px;
+			margin-top: 100px;
+			min-height: 150px;
+		}
+		.about-panels:last-child{
+			margin-bottom: 0;
+		}
+		.about-photos{
+			width: 150px;
+			height: 150px;
+			border: 7px solid #f1f1f1;
+			border-radius: 50%;
+			position: absolute;
+			left: 50%;
+			margin-left: -75px;
+			background-color: #fed136;
+			z-index:99px;
+		}
+		.about-photos>h3{
+			font-size: 23px;
+			color: #fff;
+		}
+		.about-leftword{
+			width: 40%;
+    		text-align: right;
+			display: inline-block;
+			float: left;
+		}
+		.about-rightword{
+			width: 40%;
+    		text-align: left;
+			display: inline-block;
+			float: right;
+		}
+		.iteam-panels>img{
+			border: 3px solid #f1f1f1;
+			border-radius: 50%;
+			display: block;
+    		max-width: 100%;
+    		height: auto;
+    		margin: 0 auto;
+		}
+		.iteam-icon>a{
+			color: #333;
+		    font-size: 35px;
+		    padding: 0 5px;
+		}
+		.iteam-icon>a:hover{
+			color: #fec503;
+			transition: all .4s;
+		}
+		.item-lastp{
+			float: left;
+    		padding: 45px 145px;
+		}
+		#contact{
+			background-color: #cecece;
+		}
+		.contact-panels{
+			float: left;
+			width: 460px;
+			height: 220px;
+			margin-left: 40px;
+			margin-top: 70px;
+		}
+		.contact-panels>input,
+		.contact-panels>textarea{
+			display: block;
+			width: 100%;
+			height: 60px;
+			margin: 20px;
+			padding: 20px;
+			border-radius: 5px;
+		}
+		.contact-panels>textarea{
+			height: 100%;
+		}
+		#contact>.container>.template>.btn{
+			position: relative;
+		    top: 70px;
+		    left: 25px;
+		}
+		#footer{
+			padding: 25px 0;
+		}
+		.footer-panels{
+			float: left;
+			width: 300px;
+			margin-left: 40px;
+			display:table-cell;
+			vertical-align: middle;
+		}
+		.footer-panels>span,
+		.footer-panels>a{
+			line-height: 40px;
+			text-transform: none;
+		}
+		.footer-panels>a{
+			color: #fed136;
+			padding: 0 10px;
+		}
+		.footer-panels>a:hover{
+			color: #fec503;
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<div class="navbar layout">
+			<div class="navbar-logo">
+				<a class="iconfont" href="#">&#xe60c;</a>	
+			</div> 
+			<ul class="navbar-button">
+				<li><a class="active" href="#">SERVICES</a></li>
+				<li><a href="#">PORTFOLIO</a></li>
+				<li><a href="#">ABOUT</a></li>
+				<li><a href="#">TEAM</a></li>
+				<li><a href="#">CONTACT</a></li>
+			</ul>
+		</div>
+	</div>
+	<section id="welcome">
+		<h3>Welcome To Our Lyceum!</h3>
+		<h1>IT'S NICE TO MEET YOU</h1>
+		<a class="btn" href="#">TELL ME MORE</a>
+	</section>
+	<section id="services">
+		<div class="container">
+			<div class="template">
+				<h1>SERVICES</h1>
+				<p>Lorem ipsum dolor sit amet consectetur.</p>
+			</div>
+			<div class="template">
+				<div class="services-panels">
+					<span class="iconfont services-icon icon-1"></span>
+					<h3>线下商城</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+				</div>
+				<div class="services-panels">
+					<span class="iconfont services-icon icon-2"></span>
+					<h3>网络商城</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+				</div>
+				<div class="services-panels">
+					<span class="iconfont services-icon icon-3"></span>
+					<h3>售后服务</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="portfolio">
+		<div class="container">
+			<div class="template">
+				<h1>WORKS SHOW</h1>
+				<p>Lorem ipsum dolor sit amet consectetur.</p>
+			</div>
+			<div class="template">
+				<div class="portfolio-panels">
+				    <div class="portfolio-photos">
+				    	<a href="#"><img src="白夜行.jpg" alt=""></a>
+				    </div>
+				    <div class="portfolio-word">
+				    	<h3>白夜行</h3>
+						<p>“只希望能手牵手在太阳下散步”</p>
+				    </div>
+				</div>
+				<div class="portfolio-panels">
+					<div class="portfolio-photos">
+						<a href="#"><img src="嫌疑人X的献身.jpg" alt=""></a>
+					</div>
+					<div class="portfolio-word">
+						<h3>嫌疑人X的献身</h3>
+						<p>百年一遇的数学天才石神，每天唯一的乐趣，便是去固定的便当店买午餐，只为看一眼在便当店做事的邻居靖子。</p>
+					</div>
+				</div>
+				<div class="portfolio-panels">
+					<div class="portfolio-photos">
+						<a href="#"><img src="解忧杂货店.jpg" alt=""></a>
+					</div>
+					<div class="portfolio-word">
+						<h3>解忧杂货店</h3>
+						<p>现代人内心流失的东西，这家杂货店能帮你找回。</p>
+					</div>
+				</div>
+				<div class="portfolio-panels">
+					<div class="portfolio-photos">
+						<a href="#"><img src="放学后.jpg" alt=""></a>
+					</div>
+					<div class="portfolio-word">
+						<h3>放学后</h3>
+						<p>草长莺飞的青春，忽如琉璃般生生粉碎。</p>
+					</div>
+				</div>
+				<div class="portfolio-panels">
+					<div class="portfolio-photos">
+						<a href="#"><img src="幻夜.jpg" alt=""></a>
+					</div>
+					<div class="portfolio-word">
+						<h3>幻夜</h3>
+						<p>我们只能走在幻夜的路上，即使四周明亮有如白昼，那也仅是假象。</p>
+					</div>
+				</div>
+				<div class="portfolio-panels">
+					<div class="portfolio-photos">
+						<a href="#"><img src="恶意.jpg" alt=""></a>
+					</div>
+					<div class="portfolio-word">
+						<h3>恶意</h3>
+						<p>在彻查被害人与凶手的过去之后，警官面对案情、手法均平淡无奇的事实，却感到如坠万丈深渊般无边的寒意……</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="about">
+		<div class="container">
+			<div class="template">
+				<h1>ABOUT</h1>
+				<p>Lorem ipsum dolor sit amet consectetur.</p>
+			</div>
+			<div class="template">
+				<div class="about-timeline">
+					<div class="about-panels">
+						<div class="about-leftword">
+							<h3>作品主题</h3>
+							<h3>ひがしの けいご</h3>
+							<p>东野圭吾的推理小说表达了一种理想，那就是慰藉卑微者饱受死亡威胁的心灵。这种理想属于所有对生命困境有真切感受的人类个体。在一个被死亡阴影笼罩的“规范社会”，他塑造了一种值得人们仰望和追求的生命境界。</p>
+						</div>
+						<div class="about-photos">
+							<img src="" alt="">
+						</div>
+					</div>
+					<div class="about-panels">
+						<div class="about-rightword">
+							<h3>社会揭露</h3>
+							<h3>ひがしの けいご</h3>
+							<p>东野曾在访谈中谈道:"人性的独白、社会的炎凉，这些是人类永远需要关注的命题。"这一点在东野圭吾社会派作品中的情节设计和人性描写上也体现得非常明显。表面上看来东野圭吾的某些作品中没有解谜的必要，然而看到最后才发现，它所解的不是罪案之谜，而是亲情与人性之谜。</p>
+						</div>
+						<div class="about-photos">
+							<img src="" alt="">
+						</div>
+					</div>
+					<div class="about-panels">
+						<div class="about-leftword">
+							<h3>人物形象</h3>
+							<h3>ひがしの けいご</h3>
+							<p>东野圭吾作品中，人物的爱恨往往是以一种先验的存在而出现的，即在情感成因的简单交代之后，情节的铺陈上就着重对这种情感在程度上进行一次次的强化与渲染。不再有任何的转变，人物性格的成因可能复杂幽晦，但一旦形成就极其稳定。</p>
+						</div>
+						<div class="about-photos">
+							<img src="" alt="">
+						</div>
+					</div>
+					<div class="about-panels">
+						<div class="about-rightword">
+							<h3>艺术特色</h3>
+							<h3>ひがしの けいご</h3>
+							<p>在艺术手法上，东野认为"小说首先应该是一个好故事，一个让人喜欢听下去的好故事"，如何讲述故事成为东野的新挑战。东野的叙事手法灵活多变，在叙述视角上不断变换。东野有时候甚至认为比起"推理小说"，自己的作品更像"娱乐小说"，"即让人在阅读中得到乐趣的小说"。</p>
+						</div>
+						<div class="about-photos">
+							<img src="" alt="">
+						</div>
+					</div>
+					<div class="about-panels">
+						<div class="about-photos">
+							<img src="" alt="">
+							<h3>His story is still going on
+							</h3>
+						</div>
+					</div>
+				</div>
+					
+			</div>
+		</div>
+	</section>
+	<section id="team">
+		<div class="container">
+			<div class="template">
+				<h1>OUR AMAZING TEAM</h1>
+				<p>Lorem ipsum dolor sit amet consectetur.</p>
+			</div>
+			<div class="template">
+				<div class="iteam-panels">
+					<img src="tuzi.jpg" alt="">
+					<h3>XXX</h3>
+					<p>Lead Designer</p>
+					<div class="iteam-icon iconfont">
+						<a href="#">&#xe724;</a>
+						<a href="#">&#xe60b;</a>
+						<a href="#">&#xe600;</a>
+					</div>
+				</div>
+				<div class="iteam-panels">
+					<img src="tuzi.jpg" alt="">
+					<h3>XXX</h3>
+					<p>Lead Marketer</p>
+					<div class="iteam-icon iconfont">
+						<a href="#">&#xe724;</a>
+						<a href="#">&#xe60b;</a>
+						<a href="#">&#xe600;</a>
+					</div>
+				</div>
+				<div class="iteam-panels">
+					<img src="tuzi.jpg" alt="">
+					<h3>XXX</h3>
+					<p>Lead Developer</p>
+					<div class="iteam-icon iconfont">
+						<a href="#">&#xe724;</a>
+						<a href="#">&#xe60b;</a>
+						<a href="#">&#xe600;</a>
+					</div>
+				</div>
+				<p class="item-lastp">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+			</div>
+		</div>
+	</section>
+	<section id="contact">
+		<div class="container">
+			<div class="template">
+				<h1>CONTACT US</h1>
+				<p>Lorem ipsum dolor sit amet consectetur.</p>
+			</div>
+			<div class="template">
+				<div class="contact-panels">
+					<input type="text" name="username" placeholder="YOUR NAME *">
+					<input type="text" name="email" placeholder="YOUR EMAIL *">
+					<input type="text" name="phone" placeholder="YOUR PHONE *">
+				</div>
+				<div class="contact-panels">
+					<textarea name="message" id="" cols="30" rows="10" placeholder="YOUR MESSAGE *"></textarea>
+				</div>
+				<a class="btn" href="#">SEND MESSAGE</a>
+			</div>
+		</div>
+	</section>
+	<div id="footer">
+		<div class="container">
+			<div class="template">
+				<div class="footer-panels">
+					<span>Copyright © Your Website 2014</span>
+				</div>
+				<div class="footer-panels">
+					<div class="iteam-icon iconfont">
+						<a href="#">&#xe724;</a>
+						<a href="#">&#xe60b;</a>
+						<a href="#">&#xe600;</a>
+					</div>
+				</div>
+				<div class="footer-panels">
+					<a href="#">Privacy Policy</a>
+					<a href="#">Terms of Use</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

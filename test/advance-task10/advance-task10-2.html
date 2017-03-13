@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <style>
+    .clearfix:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    
+    .layout {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, .4);
+    }
+    
+    .modal {
+      width: 400px;
+      border-radius: 3px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+    }
+    
+    .header>span {
+      font-size: 25px;
+      float: right;
+      cursor: pointer;
+      margin-top: -45px;
+      margin-right: 10px;
+    }
+    
+    .header>h3 {
+      margin: 0;
+      padding: 10px;
+      border-bottom: 2px solid #ccc;
+    }
+    
+    .container {
+      padding: 15px;
+      border-bottom: 1px solid #ccc;
+    }
+    
+    .footer {
+      padding-left: 295px;
+    }
+    
+    .footer>span {
+      padding: 10px;
+      float: left;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="btn">点我1</button>
+
+  <div class="layout">
+    <div class="modal">
+      <div class="header">
+        <h3>我是标题1</h3>
+        <span class="off1">×</span>
+      </div>
+      <div class="container">
+        <p>我是内容1</p>
+        <p>我是内容1</p>
+      </div>
+      <div class="footer clearfix">
+        <span class="off2">取消</span>
+        <span>确定</span>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    var btn = document.querySelector('.btn');
+    var layout = document.querySelector('.layout')
+    var modal = document.querySelector('.modal')
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      layout.style.display = 'block';
+    })
+    modal.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (e.target.classList.contains('off1') || e.target.classList.contains('off2')) {
+        layout.style.display = 'none';
+      }
+    })
+    layout.addEventListener('click', function (e) {
+      // e.stopPropagation();
+    })
+    document.addEventListener('click', function () {
+      layout.style.display = 'none';
+    })
+  </script>
+</body>
+
+</html>

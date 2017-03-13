@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    ul,
+    li {
+      margin: 0;
+      padding: 0;
+    }
+    
+    li {
+      list-style: none;
+    }
+    
+    .clearfix:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    
+    .tab {
+      width: 600px;
+      border: 1px solid #ccc;
+    }
+    
+    .tab-header>li {
+      width: 33.33%;
+      padding: 3px;
+      border-bottom: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      float: left;
+      text-align: center;
+      cursor: pointer;
+    }
+    
+    .tab-header>li:nth-child(3) {
+      border-right: 1px solid #fff;
+    }
+    
+    .tab-header>.active {
+      background-color: #ddd;
+    }
+    
+    .tab-container>li {
+      padding: 30px;
+      display: none;
+    }
+    
+    .tab-container>.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tab">
+    <ul class='tab-header clearfix'>
+      <li class="active">tab1</li>
+      <li>tab2</li>
+      <li>tab3</li>
+    </ul>
+    <ul class='tab-container'>
+      <li class="active">内容1</li>
+      <li>内容2</li>
+      <li>内容3</li>
+    </ul>
+  </div>
+
+  <script>
+    var tabHeader = document.querySelector('.tab-header');
+    var tabLis = document.querySelectorAll('.tab-header>li')
+    var tabPanels = document.querySelectorAll('.tab-container>li')
+
+    tabHeader.addEventListener('click', function (e) {
+      var clickNode = e.target;
+      if (clickNode.tagName.toLowerCase() === 'li') {
+        for (var i = 0; i < tabLis.length; i++) {
+          tabLis[i].classList.remove('active')
+        }
+        clickNode.classList.add('active')
+        for (var i = 0; i < tabPanels.length; i++) {
+          tabPanels[i].classList.remove('active')
+        }
+        var index = [].indexOf.call(tabLis, clickNode)
+        tabPanels[index].classList.add('active')
+      }
+    })
+  </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      ul,li{
+        list-style: none;
+      }
+      .container{
+        width: 600px;
+        margin: 0 auto;
+      }
+      .container li{
+        float: left;
+        margin: 10px 10px;
+      }
+      .container li img{
+        width: 260px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="container">
+      <li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg" /></a></li>
+      <li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg" /></a></li>
+      <li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg" /></a></li>
+      <li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg" /></a></li>
+      <li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg" /></a></li>
+      <li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/6.jpg" /></a></li>
+      <li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/7.jpg" /></a></li>
+      <li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/8.jpg" /></a></li>
+      <li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/9.jpg" /></a></li>
+      <li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/10.jpg" /></a></li>
+      <li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg" /></a></li>
+      <li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/12.jpg" /></a></li>
+      <li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg" /></a></li>
+      <li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg" /></a></li>
+      <li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/15.jpg" /></a></li>
+      <li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/16.jpg" /></a></li>
+    </ul>
+
+    <script src="../jquery-3.2.0.min.js"></script>
+    <script>
+      var clock
+      isLoading()
+      
+      $(window).on('scroll', function(){
+        if(clock){
+          clearTimeout(clock)
+        }
+        clock = setTimeout(function(){
+          console.log('hello')
+          isLoading()
+        }, 100)
+      })
+
+      function isLoading(){
+        $('.container img').each(function(){
+          if(checkShow($(this)) && !isShowed($(this))){
+            showImg($(this))
+          }
+        })
+      }
+
+      function checkShow($img){
+        var scrollTop = $(window).scrollTop(),
+            windowHeight = $(window).height(),
+            offsetTop = $img.offset().top
+        if(offsetTop < scrollTop + windowHeight && offsetTop > scrollTop){
+          return true
+        }
+        return false
+      }
+
+      function isShowed($img){
+        return $img.attr('data-src') === $img.attr('src')
+      }
+
+      function showImg($img){
+        $img.attr('src', $img.attr('data-src'))
+      }
+    </script>
+  </body>
+</html>

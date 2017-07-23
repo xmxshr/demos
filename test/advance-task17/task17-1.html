@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .carousel{
+        position: relative;
+        overflow: hidden;
+        width: 320px;
+        height: 180px;
+      }
+      .carousel ul,
+      .carousel li{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .carousel .img-ct{
+        position: absolute;
+      }
+      .carousel .img-ct li{
+        float: left;
+      }
+      .carousel .img-ct img{
+        width: 320px;
+        height: 180px;
+      }
+      .carousel .arrow{
+        position: absolute;
+        top: 50%;
+        margin-top: -15px;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        font-size: 16px;
+        text-decoration: none;
+        text-align: center;
+        color: #fff;
+        line-height: 25px;
+      }
+      .carousel .arrow:hover {
+        opacity: 0.8;
+      }      
+      .carousel .pre{
+        left: 10px;
+      }
+      .carousel .next{
+        right: 10px;
+      }
+      .carousel .bullet{
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        z-index: 1;
+        text-align: center;
+        font-size: 0;
+      }
+      .carousel .bullet li{
+        display: inline-block;
+        margin: 0 3px;
+        width: 30px;
+        height: 8px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      .carousel .bullet li.active{
+        background-color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel">
+      <ul class="img-ct">
+        <li data-id=0><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
+				<li data-id=1><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg"></a></li>
+				<li data-id=2><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg"></a></li>
+				<li data-id=3><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg"></a></li>
+      </ul>
+      <a class="pre arrow" href="#"><</a>
+      <a class="next arrow" href="#">></a>
+      <ul class="bullet">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+      var $imgCt = $('.carousel .img-ct')
+      var $imgs = $('.carousel .img-ct li')
+      var $preBtn = $('.carousel .pre')
+      var $nextBtn = $('.carousel .next')
+      var $bullets = $('.carousel .bullet li')
+
+      var pageIndex = 0
+      var isAnimating = false
+
+      var imgCount = $imgs.length
+      var imgWidth = $imgs.width()
+
+      $imgCt.append($imgs.first().clone())
+      $imgCt.prepend($imgs.last().clone())
+      $imgCt.width((imgCount + 2) * imgWidth)
+      $imgCt.css({left: -imgWidth})
+
+      $preBtn.click(function(){
+        playPre(1)
+      })
+      $nextBtn.click(function(){
+        playNext(1)
+      })
+      $bullets.click(function(){
+        var index = $(this).index()
+        if(index > pageIndex){
+          playNext(index-pageIndex)
+        }else if(index < pageIndex){
+          playPre(pageIndex-index)
+        }
+      })
+      setInterval(function(){playNext(1)}, 2000)
+
+      function playPre(len){
+        if(isAnimating){
+          return
+        }
+        isAnimating = true
+        $imgCt.animate({
+          left: '+=' + len*imgWidth
+        },function(){
+          pageIndex -= len
+          if(pageIndex === -1){
+            pageIndex = imgCount-1
+            $imgCt.css({left: -imgCount*imgWidth})
+          }
+          isAnimating = false
+          setbullets()
+        })
+      }
+
+      function playNext(len){
+        if(isAnimating){
+          return
+        }
+        isAnimating = true
+        $imgCt.animate({
+          left: '-=' + len*imgWidth
+        },function(){
+          pageIndex+=len
+          if(pageIndex === imgCount){
+            pageIndex = 0
+            $imgCt.css({left: -imgWidth})
+          }
+          isAnimating = false
+          setbullets()
+        })
+      }
+
+      function setbullets(){
+        $bullets.removeClass('active').eq(pageIndex).addClass('active')
+      }
+
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .carousel ul,
+      .carousel li{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      .carousel{
+        position:relative;
+        width: 320px;
+        height: 180px;
+        overflow: hidden;
+      }
+      .carousel .img-ct{
+        position: absolute;
+        overflow: hidden;
+      }
+      .carousel .img-ct li{
+        display: none;
+      }
+      .carousel .img-ct img{
+        width: 320px;
+        height: 180px;
+      }
+      .carousel .arrow{
+        position: absolute;
+        top: 50%;
+        margin-top: -15px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        text-align: center;
+        text-decoration: none;
+        font-size: 20px;
+        color: #fff;
+        background-color: #333;
+        opacity: 0.7;
+      }
+      .carousel .arrow:hover{
+        opacity: 1;
+      }
+      .carousel .pre{
+        left: 10px;
+      }
+      .carousel .next{
+        right: 10px;
+      }
+      .carousel .bullet{
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        text-align: center;
+        z-index: 1;
+        font-size: 0;
+      }
+      .carousel .bullet li{
+        display: inline-block;
+        margin: 0 3px;
+        width: 20px;
+        height: 5px;
+        border: 1px solid #aaa;
+        border-radius: 3px;
+      }
+      .carousel .bullet li.active{
+        background-color: #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel">
+      <ul class="img-ct">
+        <li><a href="#"><img src="https://i.loli.net/2017/07/23/59742e2c41b01.jpg"></a></li>
+        <li><a href="#"><img src="https://i.loli.net/2017/07/23/59742e2c7a336.jpg"></a></li>
+        <li><a href="#"><img src="https://i.loli.net/2017/07/23/59742e2c8c089.jpg"></a></li>
+        <li><a href="#"><img src="https://i.loli.net/2017/07/23/59742e2d06897.jpg"></a></li>
+        <li><a href="#"><img src="https://i.loli.net/2017/07/23/59742e2d1a114.jpg"></a></li>
+      </ul>
+      <a class="pre arrow" href="#"><</a>
+      <a class="next arrow" href="#">></a>
+      <ul class="bullet">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+      var $imgs = $('.carousel .img-ct li')
+      var $imgCt = $('.carousel .img-ct')
+      var $preBtn = $('.carousel .pre')
+      var $nextBtn = $('.carousel .next')
+      var $bullets = $('.carousel .bullet li')
+
+      var imgCount = $imgs.length
+
+      var pageIndex = 0
+      var isAnimating = false
+
+      $preBtn.on('click', function(){
+        playPre()
+      })
+      $nextBtn.on('click', function(){
+        playNext()
+      })
+      $bullets.on('click', function(){
+        var index = $(this).index()
+        play(index)
+      })
+
+      play(0)
+      autoPlay()
+
+      function playNext(){
+        play((pageIndex+1)%imgCount)
+      }
+      function playPre(){
+        play((pageIndex+imgCount-1)%imgCount)
+      }
+      function play(index){
+        if(isAnimating){
+          return
+        }
+        isAnimating = true
+        $imgs.eq(pageIndex).fadeOut(400)
+        $imgs.eq(index).fadeIn(400, function(){
+          isAnimating = false
+        })
+        pageIndex = index
+        setBullet()
+      }
+      function setBullet(){
+        $bullets.removeClass('active').eq(pageIndex).addClass('active')
+      }
+      function autoPlay(){
+        setInterval(function(){
+          playNext()
+        },2000)
+      }
+
+    </script>
+  </body>
+</html>

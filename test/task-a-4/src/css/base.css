@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+html,body,div,ul,li,p{
+  margin: 0;
+  padding: 0;
+}
+.clearfix{
+  content: '';
+  display: block;
+  clear: both;
+}
+a{
+  text-decoration: none;
+}
+ul,li{
+  list-style: none;
+}

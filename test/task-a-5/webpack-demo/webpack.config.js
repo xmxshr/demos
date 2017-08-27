@@ -16,7 +16,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      $ : path.resolve(__dirname+ './node_modules/jquery/dist/jquery.min.js')
+      $ : path.resolve(__dirname+ './src/js/jquery-3.2.1.min.js')
     }
   },
   module: {
